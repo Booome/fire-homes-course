@@ -14,6 +14,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Fire Homes",
   description: "Fire Homes Course Clone",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function Layout({
