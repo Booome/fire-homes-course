@@ -1,5 +1,8 @@
 import { defineAuth, secret } from "@aws-amplify/backend";
 
+const callbackUrls = process.env.CALLBACK_URLS?.split(",") || [];
+const logoutUrls = process.env.LOGOUT_URLS?.split(",") || [];
+
 /**
  * Define and configure your auth resource
  * @see https://docs.amplify.aws/gen2/build-a-backend/auth
@@ -18,14 +21,8 @@ export const auth = defineAuth({
         },
         scopes: ["email", "profile"],
       },
-      callbackUrls: [
-        "http://localhost:3000/",
-        "https://main.d1ew3fbrleovlj.amplifyapp.com/",
-      ],
-      logoutUrls: [
-        "http://localhost:3000/",
-        "https://main.d1ew3fbrleovlj.amplifyapp.com/",
-      ],
+      callbackUrls,
+      logoutUrls,
     },
   },
   groups: ["admin"],
